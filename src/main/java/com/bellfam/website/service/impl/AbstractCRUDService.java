@@ -11,7 +11,7 @@ import java.util.List;
  */
 public abstract class AbstractCRUDService<E, K> implements CRUDService<E, K> {
 
-    abstract CrudRepository<E, K> getRepository();
+    protected abstract CrudRepository<E, K> getRepository();
 
     @Override
     public void create(E object) {

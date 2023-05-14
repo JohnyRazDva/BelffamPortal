@@ -1,7 +1,11 @@
 package com.bellfam.website.service.impl.user;
 
 import com.bellfam.website.model.User;
+import com.bellfam.website.repository.interf.user.UserRepository;
+import com.bellfam.website.service.impl.AbstractCRUDService;
 import com.bellfam.website.service.interf.user.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,29 +14,13 @@ import java.util.List;
  * @author Eugene Petrov
  */
 @Service
-public class UserServiceImpl implements UserService {
-    @Override
-    public void create(User entity) {
+public class UserServiceImpl extends AbstractCRUDService<User, Integer> implements UserService {
 
-    }
-
-    @Override
-    public User findById(Integer id) {
-        return null;
-    }
+    @Autowired
+    UserRepository userRepository;
 
     @Override
-    public List<User> findAll() {
-        return null;
-    }
-
-    @Override
-    public User update(User entity) {
-        return null;
-    }
-
-    @Override
-    public void delete(User entity) {
-
+    protected CrudRepository<User, Integer> getRepository() {
+        return userRepository;
     }
 }
