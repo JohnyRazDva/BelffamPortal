@@ -9,7 +9,7 @@ import java.util.Optional;
 /**
  * @author Eugene Petrov
  */
-@Repository
+
 public class PostRepositoryImpl implements PostRepository {
     @Override
     public <S extends Post> S save(S entity) {
