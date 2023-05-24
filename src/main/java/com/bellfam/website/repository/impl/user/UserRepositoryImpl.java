@@ -9,7 +9,7 @@ import java.util.Optional;
 /**
  * @author Eugene Petrov
  */
-@Repository
+//@Repository
 public class UserRepositoryImpl implements UserRepository {
     @Override
     public <S extends User> S save(S entity) {
