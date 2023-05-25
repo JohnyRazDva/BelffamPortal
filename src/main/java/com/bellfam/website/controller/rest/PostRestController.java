@@ -23,4 +23,6 @@ public class PostRestController extends CRUDRestController<Post, Integer> {
     CRUDService<Post, Integer> getService() {
         return postService;
     }
+
+
 }
