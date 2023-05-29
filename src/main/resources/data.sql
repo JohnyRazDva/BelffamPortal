@@ -1,1 +1,2 @@
-INSERT INTO user_table (first_name, username, password) VALUES ('Zhenya','admin','admin');
+INSERT INTO role (title) VALUES ('ROLE_ADMIN')
+INSERT INTO role (title) VALUES ('ROLE_USER')

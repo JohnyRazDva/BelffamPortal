@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html   xmlns:th="http://www.thymeleaf.org"
+        lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div class="content-container">
+    <div th:switch="${presentation}" class="content-presentation">
+        <div th:case="default">
+            <div th:insert="~{/layouts/content/default}">
+            </div>
+        </div>
+        <div th:case="documents">
+            <div th:insert="~{/layouts/content/private/documents}">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

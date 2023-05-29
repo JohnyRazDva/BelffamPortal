@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <title>Role List</title>
+    <title>Home</title>
     <script type="text/javascript" src="/js/jquery-3.6.0.js"></script>
 </head>
 
@@ -16,13 +16,7 @@
 
     <div class="w3-container w3-bar w3-blue">
 
-        <span class="w3-bar-item" style="padding-left:1px"><b>Role List</b></span>
-
-        <a href="/ui/role/create" class="w3-bar-item w3-button" style="float: right;">
-            <img th:src="@{/images/icon_create.gif}"
-                 alt="create"
-                 style="width:27px;height:27px;"
-                 title="create"></a>
+        <span class="w3-bar-item" style="padding-left:1px"><b>Home page</b></span>
 
         <span class="w3-bar-item w3-button" style="float: right;">
             <img th:src="@{/images/icon_logout.jpg}"
@@ -32,11 +26,11 @@
                  id="btnLogout">
         </span>
 
-        <a href="/home" class="w3-bar-item w3-button" style="float: right;">
-            <img th:src="@{/images/icon_home.png}"
-                 alt="home"
+        <a href="/auth/registration" class="w3-bar-item w3-button" style="float: right;">
+            <img th:src="@{/images/icon_registration.png}"
+                 alt="registration"
                  style="width:27px;height:27px;"
-                 title="home"></a>
+                 title="registration"></a>
 
     </div>
 
@@ -44,30 +38,18 @@
 
     <table id="entities_table" class="w3-table w3-striped w3-bordered w3-hoverable">
         <tr>
-            <th>Id</th>
-            <th>Role</th>
+            <td><a id='users' href="/ui/user/list">Users</a></td>
+        </tr>
+        <tr>
+            <td><a id='roles' href="/ui/role/list">Roles</a></td>
+        </tr>
+        <tr>
+            <td><a id='tasks' href="/ui/post/list">Posts</a></td>
         </tr>
     </table>
 
-
+    <!--    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>-->
     <script type="text/javascript">
-
-        function ajaxGet(){
-
-            $.getJSON('/role', function (json) {
-                console.log(json);
-
-                var tr = [];
-                for (var i = 0; i < json.length; i++) {
-
-                    tr.push('<tr>');
-                    tr.push('<td><a id=' + json[i].id + ' href="/ui/role/read/' + json[i].id + '">' + json[i].id + '</a></td>');
-                    tr.push('<td>'+json[i].title+'</td>');
-                }
-
-                $('#entities_table').append($(tr.join('')));
-            });
-        }
 
         $(document).delegate('#btnLogout','click',function(event){
             event.preventDefault();
@@ -87,10 +69,6 @@
             });
         });
 
-
-        $(document).ready(function(){
-            ajaxGet();
-        });
     </script>
 
 </div>

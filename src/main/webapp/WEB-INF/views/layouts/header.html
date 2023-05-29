@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+       lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+    <title>Bellfam Portal</title>
+    <script type="text/javascript" src="/js/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <div class="header-label">
+        <a href="/content/default">
+        Bellfam
+        </a>
+    </div>
+    <div sec:authorize="hasRole('ADMIN')">
+
+
+        <div class="header-menu">
+            <a href="/content/private/documents" class="header-link">Documents</a>
+            <a href="/news" class="header-link">News</a>
+            <a href="/schedule" class="header-link">Schedule</a>
+        </div>
+    </div>
+</body>
+</html>

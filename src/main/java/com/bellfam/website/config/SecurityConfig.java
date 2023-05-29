@@ -4,6 +4,8 @@ import com.bellfam.website.service.impl.user.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -31,29 +33,33 @@ public class SecurityConfig {
         http
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/auth/login", "/error").permitAll()
-                .anyRequest().authenticated()
+                .requestMatchers("ui/user/**","ui/role/**","/content/private/**")
+                .hasRole("ADMIN")
+                .requestMatchers("/auth/login", "/auth/registration", "/auth/process-registration", "/error").permitAll()
+                .requestMatchers("/**").authenticated()
                 .and()
                 .formLogin().loginPage("/auth/login").loginProcessingUrl("/process-login")
-                .defaultSuccessUrl("/home", true)
+                .defaultSuccessUrl("/content/default", true)
                 .failureUrl("/auth/login?error")
                 .and()
-                .logout().logoutUrl("/logout").logoutSuccessUrl("/auth/login");
+                .logout().logoutUrl("/logout").logoutSuccessUrl("/auth/login")
+                .and()
+                .exceptionHandling().accessDeniedPage("/accessDeniedPage");
         return http.build();
     }
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring().requestMatchers("/images/**", "/js/**", "/webjars/**");
+        return (web) -> web.ignoring().requestMatchers("/images/**", "/js/**", "/webjars/**","/css/**");
     }
 
-//    @Bean
-//    public BCryptPasswordEncoder passwordEncoder(){
-//        return new BCryptPasswordEncoder();
-//    }
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
-        return NoOpPasswordEncoder.getInstance();
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+        return authenticationConfiguration.getAuthenticationManager();
     }
 }

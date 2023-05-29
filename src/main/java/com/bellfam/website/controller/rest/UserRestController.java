@@ -17,7 +17,7 @@ public class UserRestController extends CRUDRestController<User, Integer> {
     public static final String USER_REST_URL = "user";
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @Override
     CRUDService<User, Integer> getService() {

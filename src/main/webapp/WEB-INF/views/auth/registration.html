@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+    <title>Registration</title>
+    <script type="text/javascript" src="/js/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+<div class="login-box">
+    <h2>Login</h2>
+    <form id="registration-form" th:method="POST" th:action="@{/auth/process-registration}" th:object="${user}">
+        <div class="user-box">
+            <input type="text" name="firstName" id="firstName"  th:field="*{firstName}"required="">
+            <label>First name</label>
+            <div style="color:red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First name error</div>
+        </div>
+        <div class="user-box">
+            <input type="text" name="lastName" id="lastName"  th:field="*{lastName}"required="">
+            <label>Last name</label>
+            <div style="color:red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last name error</div>
+        </div>
+        <div class="user-box">
+            <input type="text" name="email" id="email"  th:field="*{email}"required="">
+            <label>Email</label>
+            <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</div>
+        </div>
+
+        <div class="user-box">
+            <input type="text" name="username" id="username"  th:field="*{username}"required="">
+            <label>Username</label>
+            <div style="color:red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username error</div>
+        </div>
+
+        <div class="user-box">
+            <input type="text" name="password" id="password"  th:field="*{password}"required="">
+            <label>Password</label>
+            <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password error</div>
+        </div>
+
+        <div class="login-buttons">
+            <a href="#" onclick="submitForm()">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Register
+            </a>
+            <a href="/auth/login">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Cancel
+            </a>
+        </div>
+    </form>
+</div>
+
+<script>
+        function submitForm() {
+            let form = document.getElementById("registration-form");
+            form.submit();
+        }
+    </script>
+</body>
+</html>

@@ -70,4 +70,9 @@ public class RoleRepositoryImpl implements RoleRepository {
     public void deleteAll() {
 
     }
+
+    @Override
+    public Optional<Role> findByTitle(String title) {
+        return Optional.empty();
+    }
 }
