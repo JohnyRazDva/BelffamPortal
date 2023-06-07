@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html   xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+        lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <p class="my-profile-label">My Profile:</p>
+    <div class="profile-data">
+        <p>Username: <span th:text="${user.username}"></span></p>
+        <p>First name: <span th:text="${user.firstName}"></span></p>
+        <p>Last name: <span th:text="${user.lastName}"></span></p>
+        <p>Email: <span th:text="${user.email}"></span></p>
+    </div>
+    <div class="user-profile-form">
+        <button type="submit" onclick="button_onclick(addLinkForm)">Change password</button>
+        <form method="post" style="visibility: hidden;" id="addLinkForm"  action="/options/profile/change-password">
+            <label>Your password</label>
+            <input type="password" name="password" id="password" required="">
+
+            <label>New password</label>
+            <input type="password" name="newPassword" id="newPassword" required="">
+
+            <input type="hidden" name="id" th:value="${user.id}">
+
+            <button type="submit">Save</button>
+        </form>
+        <p th:text="${result}" style="color:red"></p>
+    </div>
+
+    <script>
+        function button_onclick(element) {
+        var visibility = element.style.visibility;
+        element.style.visibility = visibility == "visible" ? 'hidden' : "visible";
+        }
+    </script>
+
+</body>
+</html>

@@ -1,5 +1,6 @@
 @import url('https://fonts.cdnfonts.com/css/bradley-hand-2');
 @import url('https://fonts.cdnfonts.com/css/luminari');
+@import url('https://fonts.googleapis.com/css2?family=Miriam+Libre:wght@700&display=swap&text=Pull%Focus');
 
 html{
     background: rgb(3 12 15 / 77%);
@@ -15,9 +16,13 @@ body {
     margin:0;
     padding:0;
     font-family: sans-serif;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     background-size: cover;
     background-image: url("/images/background.webp");
 }
+
 
 /* container with header and all content */
 .main-container{
@@ -54,10 +59,10 @@ body {
 
 .header-menu{
     display: flex;
-    position: relative;
-    right: -130%;
+    width:100%;
+    justify-content: flex-end;
 }
-.header-menu a {
+.header-menu-links a {
             color:  #03e9f4;
             text-decoration: none;
             font-family: fantasy;
@@ -68,7 +73,7 @@ body {
             letter-spacing: 3px;
             margin-inline: 30px;
 }
-.header-menu a:hover{
+.header-menu-links a:hover{
         background: #03e9f4;
         color: #fff;
         border-radius: 5px;
@@ -77,6 +82,32 @@ body {
                     0 0 50px #03e9f4,
                     0 0 100px #03e9f4;
 }
+.header-links-buttons{
+    font-size: 30px;
+}
+
+.header-links-buttons a {
+            color: transparent;
+            overflow: hidden;
+            transition: .5s;
+            letter-spacing: 3px;
+            margin-inline: 5px;
+}
+.header-links-buttons a:hover{
+        background: #03e9f4;
+        color: transparent;
+        border-radius: 5px;
+        box-shadow: 0 0 5px #03e9f4,
+                    0 0 25px #03e9f4,
+                    0 0 50px #03e9f4,
+                    0 0 100px #03e9f4;
+}
+
+.header-icons {
+    margin-left:10px;
+}
+
+
 
 .dropdown-link{
     background-color: #4CAF50;
@@ -113,12 +144,64 @@ body {
                                             0 0 30px #03e9f4;
             border-radius: 10px;
             display: flex;
-                flex-direction: column;
-                align-items: start;
+            flex-direction: column;
+            align-items: center;
             color:white;
 }
 .content-presentation {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
     width:100%;
+}
+
+.content-presentation button{
+    background: #f4efef61;
+    font-family: monospace;
+    font-size: 16px;
+}
+.content-presentation button:hover{
+    background: #f4efef61;
+    font-family: monospace;
+    font-size: 17px;
+    transition: .2s;
+    box-sizing: border-box;
+    box-shadow: 0 0 0px #03e9f4,
+                0 0 6px #03e9f4,
+                0 0 10px #03e9f4,
+                0 0 0px #03e9f4;
+}
+
+
+/*Documents content*/
+.documents-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 100px;
+}
+
+.doc-links{
+        color: #03e9f4;
+        text-decoration: none;
+        font-family: fantasy;
+        font-size: 20px;
+        text-transform: uppercase;
+        overflow: hidden;
+        transition: .5s;
+        letter-spacing: 3px;
+        margin-inline: 30px;
+}
+.doc-links:hover{
+            color: #03e9f4;
+            text-decoration: none;
+            font-family: fantasy;
+            font-size: 25px;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: .5s;
+            letter-spacing: 3px;
+            margin-inline: 30px;
 }
 
 /*Default content*/
@@ -154,6 +237,159 @@ body {
 .video-description{
      margin-left: 100px;
 }
+
+/*Content profile options*/
+
+.import-profile-data{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.options{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.content-profile{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+}
+
+.change-password-form{
+    display:flex;
+    flex-direction: column;
+}
+
+.change-password-form label{
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+.change-password-form button{
+    margin-top: 10px;
+}
+
+.user-profile-form{
+display:flex;
+flex-direction: column;
+align-items: center;
+}
+.user-profile-form button{
+margin-top:20px;
+}
+
+/*.profile-data button{
+    background: #f4efef61;
+    font-family: monospace;
+    font-size: 16px;
+}
+.profile-data button:hover{
+    background: #f4efef61;
+    font-family: monospace;
+    font-size: 17px;
+    transition: .2s;
+    box-sizing: border-box;
+    box-shadow: 0 0 0px #03e9f4,
+                0 0 6px #03e9f4,
+                0 0 10px #03e9f4,
+                0 0 0px #03e9f4;
+}*/
+
+.my-profile-label{
+    font-size: 25px;
+}
+.admin-profiles-links{
+                 color:  #03e9f4;
+                 text-decoration: none;
+                 font-family: fantasy;
+                 font-size: 20px;
+                 text-transform: uppercase;
+                 overflow: hidden;
+                 transition: .5s;
+                 letter-spacing: 3px;
+                 margin-inline: 30px;
+}
+.admin-profiles-links:hover{
+        background: #03e9f4;
+                color: #fff;
+                border-radius: 5px;
+                box-shadow: 0 0 5px #03e9f4,
+                            0 0 25px #03e9f4,
+                            0 0 50px #03e9f4,
+                            0 0 100px #03e9f4;
+}
+
+.user-table-list {
+        box-sizing: border-box;
+        box-shadow: 0 0 1px #03e9f4,
+                    0 0 2px #03e9f4,
+                    0 0 4px #03e9f4,
+                    0 0 8px #03e9f4;
+}
+
+.user-table-list-label, tr{
+        box-sizing: border-box;
+        box-shadow: 0 0 0px #03e9f4,
+                    0 0 6px #03e9f4,
+                    0 0 10px #03e9f4,
+                    0 0 0px #03e9f4;
+}
+.user-table-list-label, th{
+    padding:20px;
+}
+
+.user-table-list-data a{
+    color:white;
+    text-decoration:none;
+    transition: .5s;
+
+}
+.user-table-list-data a:hover{
+    color:#82e99bf0;
+    text-decoration:none;
+    font-size: 25px;
+}
+
+.admin-role-change-menu{
+    margin-left: 25px;
+    background:transparent;
+    color:white;
+}
+
+.update-user-data-form{
+                    display:flex;
+                    flex-direction:row;
+                    justify-content:center;
+}
+
+.update-user-data-form-button{
+                background: #f4efef61;
+                font-family: monospace;
+                font-size: 16px;
+                width: 70px;
+}
+.update-user-data-form-button:hover{
+        background: #f4efef61;
+        font-family: monospace;
+        font-size: 17px;
+        width: 70px;
+        transition: .2s;
+        box-sizing: border-box;
+        box-shadow: 0 0 0px #03e9f4, 0 0 6px #03e9f4, 0 0 10px #03e9f4, 0 0 0px #03e9f4;
+}
+
+.update-user-data-form-button:active{
+    color:white;
+}
+
+
+
+
 
 /* login and registration forms */
 .login-form{
@@ -337,4 +573,4 @@ body {
     display: flex;
     flex-direction: column;
     align-items:center;
-  }
+ }

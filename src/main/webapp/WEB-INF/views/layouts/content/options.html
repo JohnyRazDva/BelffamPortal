@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html   xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+        lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div class="content-profile">
+    <div class="options">
+        <div sec:authorize="hasRole('ADMIN')">
+            <a class="admin-profiles-links" href="/options/user-list">Users List</a>
+        </div>
+        <div th:switch="${presentationOptions}">
+            <div th:case="user-data" class="profile-data">
+                <div th:insert="~{/layouts/content/profile/myProfile}" class="import-profile-data"></div>
+            </div>
+            <div sec:authorize="hasRole('ADMIN')" th:case="user-list">
+                <div th:insert="~{/layouts/content/private/userList}"></div>
+            </div>
+            <div th:case="user-read" class="profile-data">
+                <div th:insert="~{/layouts/content/private/readUser}"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

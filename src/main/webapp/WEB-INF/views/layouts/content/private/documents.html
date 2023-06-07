@@ -1,11 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html   xmlns:th="http://www.thymeleaf.org"
+        lang="en">
 <head>
     <meta charset="UTF-8">
 </head>
 <body>
-<div class="documents-content">
-    This is docs content
-</div>
+        <div class="documents-content">
+            <p class="welcome-message">Links list</p>
+            <div th:each="link : ${links}" >
+                <a th:href="@{${link.linkValue}}" th:text="${link.description}" class="doc-links" target="_blank"></a>
+                <a href="/link/read/edit"><button type="submit" name="link" th:value="${link}" onclick="button_onclick(editLinkForm)" class="update-user-data-form-button">edit</button></a>
+            </div>
+            <div>
+                <button type="submit" onclick="button_onclick(addLinkForm)">add link</button>
+                <form  style="visibility: hidden;" id="addLinkForm" class="change-password-form" th:method="POST" th:action="@{/private/documents/add}" th:object="${link}">
+
+                    <label>Link</label>
+                    <input type="text" name="linkValue" id="linkValue"  th:field="*{linkValue}"required="">
+
+                    <label>Description</label>
+                    <input type="text" name="description" id="description"  th:field="*{description}" required="">
+
+                    <button type="submit" class="update-user-data-form-button">save</button>
+                </form>
+            </div>
+            <script>
+                function button_onclick(element) {
+                var visibility = element.style.visibility;
+                element.style.visibility = visibility == "visible" ? 'hidden' : "visible";
+                }
+            </script>
+        </div>
 </body>
 </html>

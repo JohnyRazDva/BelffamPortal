@@ -14,13 +14,25 @@
         Bellfam
         </a>
     </div>
-    <div sec:authorize="hasRole('ADMIN')">
-
-
-        <div class="header-menu">
-            <a href="/content/private/documents" class="header-link">Documents</a>
+    <div class="header-menu">
+        <div sec:authorize="hasRole('ADMIN')" class="header-menu-links">
+            <a href="/private/documents" class="header-link">Documents</a>
             <a href="/news" class="header-link">News</a>
-            <a href="/schedule" class="header-link">Schedule</a>
+        </div>
+
+        <div class="header-links-buttons">
+            <a href="/options">
+                <img th:src="@{/images/profile.png}"
+                     alt="Options"
+                     style="width:27px;height:27px;"
+                     title="Options" class="header-icons">
+            </a>
+            <a  href="/logout" >
+                <img th:src="@{/images/sign-out.png}"
+                     alt="Logout"
+                     style="width:27px;height:27px;margin-right:10px"
+                     title="Logout" class="header-icons">
+            </a>
         </div>
     </div>
 </body>
