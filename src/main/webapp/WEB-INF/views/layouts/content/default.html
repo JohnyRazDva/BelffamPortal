@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html   xmlns:th="http://www.thymeleaf.org"
+        lang="en">
 <head>
     <meta charset="UTF-8">
 </head>
@@ -8,15 +9,24 @@
     <p class="welcome-message">Welcome to the Bellfam Portal</p>
     <div class="default-content-box">
         <div class="video-guide">
-            <div class="video">
-                <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            <div class="video-guide-edit">
+                <form method="POST" class="video-edit-form" action="/content/default/edit-video-link">
+                    <label for="videoLink">Link</label>
+                    <input type="text" id="videoLink" name="videoLink">
+                    <label for="description">Video description</label>
+                    <input type="text" id="description" name="description">
+                    <button type="submit">save</button>
+                </form>
+            </div>
+            <div class="video" th:object="${videoLink}">
+                <iframe width="560" height="315" th:src="*{linkValue}"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen>
-                </iframe>-->
+                </iframe>
             </div>
-            <div class="video-description">
-                <p>This is video guide for ELD</p>
+            <div class="video-description" th:object="${videoLink}">
+                <p th:text="*{description}"></p>
             </div>
         </div>
     </div>

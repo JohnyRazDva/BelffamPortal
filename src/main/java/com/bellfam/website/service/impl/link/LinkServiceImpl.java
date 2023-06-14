@@ -24,4 +24,19 @@ public class LinkServiceImpl extends AbstractCRUDService<Link, Integer> implemen
         return linkRepository;
     }
 
+    @Override
+    public void updateLink(String id, String linkValue, String description) {
+        int linkId = Integer.parseInt(id);
+        Link link = this.findById(linkId);
+        link.setLinkValue(linkValue);
+        link.setDescription(description);
+        this.update(link);
+    }
+
+    @Override
+    public void deleteLink(String id) {
+        int linkId = Integer.parseInt(id);
+        Link link = this.findById(linkId);
+        this.delete(link);
+    }
 }

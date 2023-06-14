@@ -19,6 +19,10 @@
             <div th:insert="~{/layouts/content/options}">
             </div>
         </div>
+        <div th:case="news" class="content-news" th:insert="~{/layouts/content/private/news}">
+        </div>
+        <div th:case="mail" class="content-news" th:insert="~{/layouts/content/private/mail}">
+        </div>
     </div>
 </div>
 </body>

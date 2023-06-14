@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html   xmlns:th="http://www.thymeleaf.org"
+        lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" th:src="@{/js/private/links-list.js}"></script>
+</head>
+<body>
+    <div class="news-label">
+        <p class="welcome-message">News List</p>
+    </div>
+    <div class="news-wrapper">
+        <div class="news-container">
+            <div class="news-box" th:each="post: ${posts}">
+                <div class="news-date" th:text="${#dates.format(post.date, 'dd-MM-yyyy')}">
+                </div>
+                <form class="news-date" action="/private/news/delete">
+                    <input type="hidden" name="id" th:value="${post.id}">
+                    <button type="submit">delete</button>
+                </form>
+                <div class="news-text">
+                    <p th:text="${post.text}"></p>
+                </div>
+
+                <div class="news-author" th:text="${post.author}">
+                </div>
+
+            </div>
+        </div>
+        <form method="POST" class="add-news-form" action="/private/news/add" th:object="${post}">
+            <textarea id="text" name="text" rows="4" cols="50" th:field="*{text}">
+                Enter your news here
+            </textarea>
+            <button type="submit">add</button>
+        </form>
+    </div>
+</body>
+</html>

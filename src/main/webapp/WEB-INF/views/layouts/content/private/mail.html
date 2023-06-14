@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html   xmlns:th="http://www.thymeleaf.org"
+        lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" th:src="@{/js/private/links-list.js}"></script>
+</head>
+<body>
+    <div class="mail-content">
+        <form class="mail-form" method="POST" action="/private/mail/send">
+            <label for="to">Send to:</label>
+            <input type="text" id="to" name="to">
+
+            <label for="company">Company name:</label>
+            <input type="text" id="company" name="companyName">
+
+            <label for="companyMainAddress">Company main address:</label>
+            <input type="text" id="companyMainAddress" name="companyMainAddress">
+
+            <label for="companySecondAddress">Company second address:</label>
+            <input type="text" id="companySecondAddress" name="companySecondAddress">
+
+            <label for="driverInfo">Driver first and last name:</label>
+            <input type="text" id="driverInfo" name="driverInfo">
+
+            <label for="date">Date:</label>
+            <input type="text" id="date" name="date">
+
+            <button type="submit">send</button>
+        </form>
+    </div>
+</body>
+</html>

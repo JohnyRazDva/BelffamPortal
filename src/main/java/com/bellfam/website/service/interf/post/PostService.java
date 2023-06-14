@@ -7,4 +7,5 @@ import com.bellfam.website.service.interf.CRUDService;
  * @author Eugene Petrov
  */
 public interface PostService extends CRUDService<Post, Integer> {
+    void createPost(Post post);
 }

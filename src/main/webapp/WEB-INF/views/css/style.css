@@ -1,9 +1,15 @@
 @import url('https://fonts.cdnfonts.com/css/bradley-hand-2');
 @import url('https://fonts.cdnfonts.com/css/luminari');
 @import url('https://fonts.googleapis.com/css2?family=Miriam+Libre:wght@700&display=swap&text=Pull%Focus');
+@import url('http://fonts.googleapis.com/css?family=Comfortaa&subset=latin,cyrillic');
 
 html{
-    background: rgb(3 12 15 / 77%);
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("/images/background.webp");
+    /*background: rgb(3 12 15 / 77%);*/
 }
 html, body {
     margin:0 auto;
@@ -16,11 +22,7 @@ body {
     margin:0;
     padding:0;
     font-family: sans-serif;
-    background-position: center center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url("/images/background.webp");
+
 }
 
 
@@ -123,7 +125,8 @@ body {
 .content{
             margin: 0 auto;
             width: 95%;
-            height:100%;
+            height: fit-content;
+            min-height:100vh;
             background: #4a4a4ad6;
             box-sizing: border-box;
             box-shadow: 0 15px 25px rgba(0,0,0,.6);
@@ -136,6 +139,7 @@ body {
             margin: 0 auto;
             width: 98%;
             height:98%;
+            min-height:100vh;
             background: rgb(3 12 15 / 77%);
             box-sizing: border-box;
             box-shadow:                     0 0 1px #03e9f4,
@@ -173,13 +177,100 @@ body {
 }
 
 
+/*News Content*/
+
+.news-container{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    width: 100%;
+}
+
+.news-box{
+    margin: 10px;
+    border: groove 2px gray;
+    width: 70%;
+
+}
+.news-wrapper{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.news-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: fantasy;
+    font-size: 1.5em;
+}
+
+
+.news-author{
+    display:flex;
+    flex-direction: column;
+    align-items: end;
+    margin-right: 10px;
+    color: #ffffff6b;
+    font-family: cursive;
+    font-size: 1em;
+}
+
+.news-date{
+    display:flex;
+    flex-direction: column;
+    align-items: end;
+    margin-right: 10px;
+    font-family: cursive;
+    font-size: 1em;
+    color: #ffffff6b;
+}
+.news-label{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px auto;
+}
+.add-news-form{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+
+}
+
+.content-news{
+    width: 100%;
+}
+
+/*Mail content*/
+.mail-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
 /*Documents content*/
 .documents-content{
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 100px;
+       /* margin-top: 100px;*/
 }
+
+.editLinkForm{
+visibility:hidden;
+}
+
+.documents-link-box{
+display:flex;
+flex-direction: column;
+align-items: center;
+margin-bottom: 20px;
+}
+
+
 
 .doc-links{
         color: #03e9f4;
@@ -215,16 +306,20 @@ body {
 }
 .welcome-message{
     font-size: 32px;
-        padding-bottom: 50px;
+    padding-bottom: 50px;
 }
 
 .video-guide {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             align-items: center;
-            margin: 20px;
-            width:100%;
-            gap: 200px;
+}
+
+.video-edit-form{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .video {
