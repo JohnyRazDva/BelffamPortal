@@ -19,7 +19,7 @@ public class LinkRestController extends CRUDRestController<Link, Integer> {
     public static final String LINK_REST_URL="link";
 
     @Autowired
-    LinkService linkService;
+    private LinkService linkService;
 
     @Override
     CRUDService<Link, Integer> getService(){

@@ -15,7 +15,7 @@
         </a>
     </div>
     <div class="header-menu">
-        <div sec:authorize="hasRole('ADMIN')" class="header-menu-links">
+        <div sec:authorize="hasAnyRole('ADMIN','MANAGER')" class="header-menu-links">
             <a href="/private/documents" class="header-link">Documents</a>
             <a href="/private/news" class="header-link">News</a>
             <a href="/private/mail" class="header-link">Mail</a>
@@ -25,13 +25,11 @@
             <a href="/options">
                 <img th:src="@{/images/profile.png}"
                      alt="Options"
-                     style="width:27px;height:27px;"
                      title="Options" class="header-icons">
             </a>
             <a  href="/logout" >
                 <img th:src="@{/images/sign-out.png}"
                      alt="Logout"
-                     style="width:27px;height:27px;margin-right:10px"
                      title="Logout" class="header-icons">
             </a>
         </div>

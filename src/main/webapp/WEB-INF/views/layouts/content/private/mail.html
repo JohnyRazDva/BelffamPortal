@@ -1,33 +1,46 @@
 <!DOCTYPE html>
-<html   xmlns:th="http://www.thymeleaf.org"
-        lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en">
 <head>
     <meta charset="UTF-8">
     <script type="text/javascript" th:src="@{/js/private/links-list.js}"></script>
 </head>
 <body>
-    <div class="mail-content">
-        <form class="mail-form" method="POST" action="/private/mail/send">
-            <label for="to">Send to:</label>
-            <input type="text" id="to" name="to">
+<div class="mail-content">
+    <form class="mail-form" method="POST" name="mail" action="/private/mail/send" onsubmit="return validateForm()">
+        <label for="to">Send to:</label>
+        <input type="text" id="to" name="to" required>
 
-            <label for="company">Company name:</label>
-            <input type="text" id="company" name="companyName">
+        <label for="company">Company name:</label>
+        <input type="text" id="company" name="companyName" required>
 
-            <label for="companyMainAddress">Company main address:</label>
-            <input type="text" id="companyMainAddress" name="companyMainAddress">
+        <label for="companyMainAddress">Company main address:</label>
+        <input type="text" id="companyMainAddress" name="companyMainAddress" required>
 
-            <label for="companySecondAddress">Company second address:</label>
-            <input type="text" id="companySecondAddress" name="companySecondAddress">
+        <label for="companySecondAddress">Company second address:</label>
+        <input type="text" id="companySecondAddress" name="companySecondAddress" required>
 
-            <label for="driverInfo">Driver first and last name:</label>
-            <input type="text" id="driverInfo" name="driverInfo">
+        <label for="driverInfo">Driver first and last name:</label>
+        <input type="text" id="driverInfo" name="driverInfo" required>
 
-            <label for="date">Date:</label>
-            <input type="text" id="date" name="date">
+        <label for="date">Date:</label>
+        <input type="text" id="date" name="date" required>
 
-            <button type="submit">send</button>
-        </form>
-    </div>
+        <button type="submit">send</button>
+    </form>
+
+    <p style="color:red" th:text="${error}"></p>
+</div>
+
+<script>
+    function validateForm(){
+        let x = document.forms["mail"]["to"].value;
+        if (x == "") {
+            alert("mail must be filled out");
+            return false;
+        }
+    }
+
+</script>
 </body>
 </html>

@@ -11,13 +11,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 /**
  * @author Eugene Petrov
  */
 @Service
 public class VideoLinkServiceImpl extends AbstractCRUDService<VideoLink, Integer> implements VideoLinkService {
     @Autowired
-    VideoLinkRepository videoLinkRepository;
+    private VideoLinkRepository videoLinkRepository;
 
     @Override
     protected CrudRepository<VideoLink, Integer> getRepository() {
@@ -25,11 +27,20 @@ public class VideoLinkServiceImpl extends AbstractCRUDService<VideoLink, Integer
     }
 
     @Override
-    public void updateVideoLink(String linkValue, String description) {
-        VideoLink link = videoLinkRepository.findAll().iterator().next();
-        link.setLinkValue(linkValue);
-        link.setDescription(description);
-        this.update(link);
+    public void updateVideoLink(int id, String linkValue, String description) {
+        Optional<VideoLink> link = videoLinkRepository.findById(id);
+        if (link.isEmpty()) {
+            //TODO throw custom exception
+        } else {
+            VideoLink resultLink = link.get();
+            if (!linkValue.isEmpty()) {
+                resultLink.setLinkValue(linkValue);
+            }
+            if (!description.isEmpty()) {
+                resultLink.setDescription(description);
+            }
+            this.update(resultLink);
+        }
     }
 
     @Override

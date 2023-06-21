@@ -26,28 +26,26 @@ public class ContentDocumentsController {
     @RequestMapping()
     public String documentsContent(@ModelAttribute("link") Link link, Model model) throws MessagingException {
         model.addAttribute("presentation", "documents");
-        model.addAttribute("documentsPresentation", "view");
         model.addAttribute("links", linkService.findAll());
         return "/home";
     }
 
     @PostMapping("/update/{id}")
-    public String editDocumentsContent(@PathVariable String id, @RequestParam(name = "linkValue") String linkValue, @RequestParam(name = "description") String description ) {
-        linkService.updateLink(id,linkValue,description);
+    public String editDocumentsContent(@PathVariable String id, @RequestParam("linkValue") String linkValue,
+                                       @RequestParam("description") String description) {
+        linkService.updateLink(id, linkValue, description);
         return "redirect:/private/documents";
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteDocumentsContent(@PathVariable String id){
+    public String deleteDocumentsContent(@PathVariable String id) {
         linkService.deleteLink(id);
         return "redirect:/private/documents";
     }
 
     @PostMapping("/add")
-    public String addLinkDocumentsContent(@ModelAttribute("link") Link link , Model model) {
+    public String addLinkDocumentsContent(@ModelAttribute("link") Link link) {
         linkService.create(link);
-        model.addAttribute("presentation", "documents");
-        model.addAttribute("links", linkService.findAll());
         return "redirect:/private/documents";
     }
 }

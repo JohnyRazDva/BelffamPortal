@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html   xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
         lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +15,7 @@
             <div class="news-box" th:each="post: ${posts}">
                 <div class="news-date" th:text="${#dates.format(post.date, 'dd-MM-yyyy')}">
                 </div>
-                <form class="news-date" action="/private/news/delete">
+                <form class="news-date" action="/private/news/delete" sec:authorize="hasRole('ADMIN')">
                     <input type="hidden" name="id" th:value="${post.id}">
                     <button type="submit">delete</button>
                 </form>
@@ -28,7 +29,7 @@
             </div>
         </div>
         <form method="POST" class="add-news-form" action="/private/news/add" th:object="${post}">
-            <textarea id="text" name="text" rows="4" cols="50" th:field="*{text}">
+            <textarea id="text" name="text"  th:field="*{text}" required>
                 Enter your news here
             </textarea>
             <button type="submit">add</button>

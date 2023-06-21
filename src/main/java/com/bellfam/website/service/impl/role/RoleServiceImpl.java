@@ -17,7 +17,7 @@ import java.util.List;
 public class RoleServiceImpl extends AbstractCRUDService<Role, Integer> implements RoleService {
 
     @Autowired
-    RoleRepository roleRepository;
+    private RoleRepository roleRepository;
 
     @Override
     protected CrudRepository<Role, Integer> getRepository() {

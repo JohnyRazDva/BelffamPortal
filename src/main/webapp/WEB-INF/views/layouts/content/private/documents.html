@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html   xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
         lang="en">
 <head>
     <meta charset="UTF-8">
     <script type="text/javascript" th:src="@{/js/private/links-list.js}"></script>
 </head>
 <body>
-        <div class="documents-content">
-            <p class="welcome-message">Links list</p>
-            <input type="checkbox" id="edit_links_checkbox" onclick="toggleBoxVisibility()"/>
-            <label for="edit_links_checkbox">edit links</label>
-            <div  id="link_list">
-                <!--<a th:href="@{${link.linkValue}}" th:text="${link.description}" class="doc-links" target="_blank"></a>-->
-                <!--<a href="/link/read/edit"><button type="submit" name="link" th:value="${link}" onclick="button_onclick(editLinkForm)" class="update-user-data-form-button">edit</button></a>-->
-            </div>
-            <div>
-                <button type="submit" onclick="button_onclick(addLinkForm)">add link</button>
-                <form  style="visibility: hidden;" id="addLinkForm" class="change-password-form" th:method="POST" th:action="@{/private/documents/add}" th:object="${link}">
-
-                    <label>Link</label>
-                    <input type="text" name="linkValue" id="linkValue"  th:field="*{linkValue}"required="">
-
-                    <label>Description</label>
-                    <input type="text" name="description" id="description"  th:field="*{description}" required="">
-
-                    <button type="submit" class="update-user-data-form-button">save</button>
-                </form>
-            </div>
+    <div class="documents-content">
+        <p class="welcome-message">Links list</p>
+        <div class="edit_documents_checkbox" sec:authorize="hasRole('ADMIN')">
+            <input type="checkbox" id="edit_links_checkbox" onclick="toggleBoxVisibility()" sec:authorize="hasRole('ADMIN')" />
+            <label for="edit_links_checkbox">Edit links</label>
         </div>
+        <div  id="link_list">
+        </div>
+        <div class="add-documents-link-form" sec:authorize="hasRole('ADMIN')">
+            <button type="submit" onclick="button_onclick(addLinkForm)">add link</button>
+            <form  style="visibility: hidden;" id="addLinkForm" class="change-password-form" th:method="POST" th:action="@{/private/documents/add}" th:object="${link}">
+
+                <label>Link</label>
+                <input type="text" name="linkValue" id="linkValue"  th:field="*{linkValue}"required="">
+
+                <label>Description</label>
+                <input type="text" name="description" id="description"  th:field="*{description}" required="">
+
+                <button type="submit" class="update-user-data-form-button">save</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

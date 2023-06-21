@@ -65,7 +65,6 @@ public class PdfFileRedactor {
     }
 
     private Document addDataToDocument(Document document, String companyName, String companyMainAddress, String companySecondAddress, String driverInfo, String date) throws IOException {
-
         PdfFont font = PdfFontFactory.createFont("Arialn.ttf", PdfEncodings.IDENTITY_H);
 
 
@@ -129,6 +128,7 @@ public class PdfFileRedactor {
         return document;
     }
 
+    //TODO exceptions and delete serr
     public void deletePdfFile(){
         Path path = FileSystems.getDefault().getPath(PDF_FILE_SOURCE);
         try {

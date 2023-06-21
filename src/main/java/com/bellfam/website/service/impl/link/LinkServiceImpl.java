@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 public class LinkServiceImpl extends AbstractCRUDService<Link, Integer> implements LinkService {
 
     @Autowired
-    LinkRepository linkRepository;
+    private LinkRepository linkRepository;
 
     @Override
     protected CrudRepository<Link, Integer> getRepository() {

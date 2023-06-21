@@ -8,7 +8,7 @@ import com.bellfam.website.service.interf.CRUDService;
  * @author Eugene Petrov
  */
 public interface VideoLinkService extends CRUDService<VideoLink, Integer> {
-    void updateVideoLink(String linkValue, String description);
+    void updateVideoLink(int id, String linkValue, String description);
     void deleteVideoLink(String id);
     VideoLink get();
 }

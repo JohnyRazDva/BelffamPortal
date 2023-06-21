@@ -17,7 +17,7 @@ public class PostRestController extends CRUDRestController<Post, Integer> {
     public static final String POST_REST_URL = "post";
 
     @Autowired
-    PostService postService;
+    private PostService postService;
 
     @Override
     CRUDService<Post, Integer> getService() {

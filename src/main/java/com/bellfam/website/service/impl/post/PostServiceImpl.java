@@ -23,16 +23,18 @@ import java.time.LocalDate;
 public class PostServiceImpl extends AbstractCRUDService<Post, Integer> implements PostService {
 
     @Autowired
-    PostRepository postRepository;
+    private PostRepository postRepository;
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @Override
     protected CrudRepository<Post, Integer> getRepository() {
         return postRepository;
     }
 
+
+    //TODO do something with null user
     @Override
     public void createPost(Post post) {
         User user;

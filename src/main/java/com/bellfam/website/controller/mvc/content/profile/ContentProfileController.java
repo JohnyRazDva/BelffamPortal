@@ -40,7 +40,7 @@ public class ContentProfileController {
         if (principal instanceof UserDetails) {
             user = userService.findUserByUsername(((UserDetails) principal).getUsername());
         } else {
-            user = null;
+            return "redirect:/error";
         }
         model.addAttribute("user", user);
         return "/home";
@@ -55,6 +55,7 @@ public class ContentProfileController {
         return "/home";
     }
 
+    //TODO move some actions to services
     @RequestMapping("/ui/user/read/{id}")
     public String optionsContentUserRead(@PathVariable String id, Model model) {
         List<Role> roles = roleService.findAll();
@@ -71,7 +72,7 @@ public class ContentProfileController {
     }
 
     @RequestMapping("/ui/user/update-role")
-    public String optionsContentUpdateUserRole(@RequestParam(name = "roleId") int roleId, @RequestParam(name = "userId") int userId) {
+    public String optionsContentUpdateUserRole(@RequestParam("roleId") int roleId, @RequestParam("userId") int userId) {
         userService.updateUserRole(userId, roleId);
         return "redirect:/options/ui/user/read/" + userId;
     }
@@ -83,7 +84,9 @@ public class ContentProfileController {
     }
 
     @PostMapping("/profile/change-password")
-    public String optionContentChangeProfilePassword(@RequestParam(name = "password") String password, @RequestParam(name = "newPassword") String newPassword, @RequestParam(name = "id") int id, RedirectAttributes redirectAttributes) {
+    public String optionContentChangeProfilePassword(@RequestParam("password") String password,
+                                                     @RequestParam("newPassword") String newPassword,
+                                                     @RequestParam("id") int id, RedirectAttributes redirectAttributes) {
         redirectAttributes.addFlashAttribute("result", "incorrect password");
         if (userService.checkUserPassword(id, password)) {
             userService.changePassword(id, newPassword);
@@ -93,7 +96,8 @@ public class ContentProfileController {
     }
 
     @PostMapping("/profile/change-user-password")
-    public String optionContentChangePasswordFromAdmin(@RequestParam(name = "newPassword") String newPassword, @RequestParam(name = "id") int userId) {
+    public String optionContentChangePasswordFromAdmin(@RequestParam("newPassword") String newPassword,
+                                                       @RequestParam("id") int userId) {
         userService.changePassword(userId, newPassword);
         return "redirect:/options/ui/user/read/" + userId;
 

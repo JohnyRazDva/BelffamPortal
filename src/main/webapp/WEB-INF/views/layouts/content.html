@@ -7,21 +7,17 @@
 <body>
 <div class="content-container">
     <div th:switch="${presentation}" class="content-presentation">
-        <div th:case="default">
-            <div th:insert="~{/layouts/content/default}">
-            </div>
+        <div th:case="default" th:insert="~{/layouts/content/default}" class="default-content">
         </div>
-        <div th:case="documents">
-            <div th:insert="~{/layouts/content/private/documents}">
-            </div>
+        <div th:case="documents" th:insert="~{/layouts/content/private/documents}">
         </div>
-        <div th:case="options">
-            <div th:insert="~{/layouts/content/options}">
-            </div>
+        <div th:case="options" th:insert="~{/layouts/content/options}" class="options">
         </div>
         <div th:case="news" class="content-news" th:insert="~{/layouts/content/private/news}">
         </div>
-        <div th:case="mail" class="content-news" th:insert="~{/layouts/content/private/mail}">
+        <div th:case="mail" class="content-mail" th:insert="~{/layouts/content/private/mail}">
+        </div>
+        <div th:case="error" class="error-page" th:insert="~{/layouts/error}">
         </div>
     </div>
 </div>

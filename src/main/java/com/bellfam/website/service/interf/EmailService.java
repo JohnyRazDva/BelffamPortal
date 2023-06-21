@@ -1,6 +1,7 @@
 package com.bellfam.website.service.interf;
 
 import javax.mail.MessagingException;
+import javax.mail.SendFailedException;
 import java.io.IOException;
 
 /**
