@@ -45,7 +45,7 @@ public class EmailServiceImpl implements EmailService {
         helper.setSubject(subject);
         helper.setText(text);
         FileSystemResource file = new FileSystemResource(new File(pathToAttachment));
-        helper.addAttachment("Invoice", file);
+        helper.addAttachment("Malfunction Letter", file);
         javaMailSender.send(message);
     }
 
