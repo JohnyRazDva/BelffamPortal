@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.bellfam</groupId>
 	<artifactId>website</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>website</name>
 	<description>Bellfam company website</description>
 	<properties>
@@ -108,9 +108,17 @@
 			<artifactId>cleanup</artifactId>
 			<version>3.0.1</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-core -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
+		<finalName>bellfam</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

@@ -42,17 +42,35 @@ body {
     align-items: center;
     margin: auto;
     top: 0;
-    height: 3%;
+    height: 5%;
     padding: 1vw 1.1vw;
+}
+
+.header button{
+    background: #f4efef61;
+    font-family: monospace;
+    font-size: 1em;
+}
+
+.header button:hover{
+    background: #f4efef61;
+    font-family: monospace;
+    font-size: 1.1em;
+    transition: .2s;
+    box-sizing: border-box;
+    box-shadow: 0 0 0px white,
+                0 0 0.2em white,
+                0 0 0.4em white,
+                0 0 0em white;
 }
 
 
 
 .header-label a{
-    color:  #03e9f4;
+    color:  white;
     text-decoration: none;
     font-family: fantasy;
-    /*font-size: 1em;*/
+    font-size: 1.4em;
     text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
@@ -66,10 +84,10 @@ body {
     justify-content: flex-end;
 }
 .header-menu-links a {
-            color:  #03e9f4;
+            color:  white;
             text-decoration: none;
             font-family: fantasy;
-            /*font-size: 1em;*/
+            font-size: 1em;
             text-transform: uppercase;
             overflow: hidden;
             transition: .5s;
@@ -77,13 +95,16 @@ body {
             margin-inline: 1em;
 }
 .header-menu-links a:hover{
-        background: #03e9f4;
+        font-size: 1.1em;
+        transition: .5s;
+        /*background: #03e9f4;
         color: #fff;
         border-radius: 0.2em;
         box-shadow: 0 0 0.2em #03e9f4,
                     0 0 1em #03e9f4,
                     0 0 2em #03e9f4,
-                    0 0 4em #03e9f4;
+                    0 0 4em #03e9f4;*/
+
 }
 
 .header-links-buttons a {
@@ -94,22 +115,63 @@ body {
             margin-inline: 0.2em;
 }
 .header-links-buttons a:hover{
-        background: #03e9f4;
+
         color: transparent;
-        border-radius: 0.2em;
-        box-shadow: 0 0 0.2em #03e9f4,
-                    0 0 1em #03e9f4,
-                    0 0 2em #03e9f4,
-                    0 0 4em #03e9f4;
+        /*border-radius: 0.2em;
+        box-shadow: 0 0 0.2em white,
+                    0 0 1em white,
+                    0 0 2em white,
+                    0 0 4em white;*/
 }
 
 .header-icons {
     margin-left:0.3em;
 }
 .header-links-buttons img{
+    transition: .5s;
     width:1.3em;
     height:1em;
-    }
+}
+
+.header-links-buttons img:hover{
+    transition: .5s;
+    width:1.5em;
+    height:1.2em;
+}
+
+.logination-form a{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    color: white;
+    text-decoration: none;
+    font-family:none;
+    font-size:1em;
+    transition: .5s;
+}
+.logination-form a:hover{
+    transition: .5s;
+    font-size:1.2em;
+}
+
+.logination-form{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.login-registration-box{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin:0.5em;
+}
+.login-registration-box input{
+    color:white;
+    background:rgba(255, 255, 255, 0.15);
+}
+.login-registration-box input::placeholder{
+    color: white;
+}
 
 /* Content*/
 .content{
@@ -132,10 +194,10 @@ body {
             min-height:100vh;
             background: rgb(3 12 15 / 77%);
             box-sizing: border-box;
-            box-shadow:                     0 0 0.1em #03e9f4,
-                                            0 0 0.2em #03e9f4,
-                                            0 0 0.3em #03e9f4,
-                                            0 0 1em #03e9f4;
+            box-shadow:                     0 0 0.1em white,
+                                            0 0 0.2em white,
+                                            0 0 0.3em white,
+                                            0 0 1em white;
             border-radius: 0.5em;
             display: flex;
             flex-direction: column;
@@ -160,11 +222,28 @@ body {
     font-size: 1.3em;
     transition: .2s;
     box-sizing: border-box;
-    box-shadow: 0 0 0px #03e9f4,
-                0 0 0.2em #03e9f4,
-                0 0 0.4em #03e9f4,
-                0 0 0em #03e9f4;
+    box-shadow: 0 0 0px white,
+                0 0 0.2em white,
+                0 0 0.4em white,
+                0 0 0em white;
 }
+
+.app-links{
+    font-size:1.3em;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    margin-bottom: 2em;
+
+}
+.app-links a{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    color:white;
+    text-decoration:none;
+}
+
 
 
 /*News Content*/
@@ -239,6 +318,14 @@ body {
     width: 100%;
 }
 
+/*Contacts*/
+.contacts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.2em;
+}
+
 /*Mail content*/
 
 .content-mail{
@@ -282,7 +369,7 @@ align-items: center;
 
 
 .doc-links{
-        color: #03e9f4;
+        color: white;
         text-decoration: none;
         font-family: fantasy;
         font-size: 1.3em;
@@ -293,7 +380,7 @@ align-items: center;
 
 }
 .doc-links:hover{
-            color: #03e9f4;
+            white;
             text-decoration: none;
             font-family: fantasy;
             font-size: 1.5em;
@@ -310,16 +397,20 @@ align-items: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family:initial;
 }
 .default-content-box {
     display:flex;
     flex-direction:column;
     align-items:center;
     width: 100%;
+    margin-top:5em;
 }
 .welcome-message{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
     font-size: 2em;
-    padding-bottom: 2em;
 }
 
 .video-guide {
@@ -370,10 +461,10 @@ align-items: center;
 
 .video {
     box-sizing: border-box;
-    box-shadow: 0 0 0.1em #03e9f4,
-                0 0 0.1em #03e9f4,
-                0 0 0.2em #03e9f4,
-                0 0 0.3em #03e9f4;
+    box-shadow: 0 0 0.1em white,
+                0 0 0.1em white,
+                0 0 0.2em white,
+                0 0 0.3em white;
     height:350px;
     width:450px;
 
@@ -381,7 +472,7 @@ align-items: center;
 .video-description{
     text-align:center;
     font-size:1.3em;
-    font-family:monospace;
+
 }
 
 /*Content profile options*/
@@ -468,24 +559,19 @@ margin-top:0.6em;
     font-size: 1em;
 }
 .admin-profiles-links{
-                 color:  #03e9f4;
-                 text-decoration: none;
-                 font-family: fantasy;
-                 font-size: 1em;
-                 text-transform: uppercase;
-                 overflow: hidden;
-                 transition: .5s;
-                 letter-spacing: 0.1em;
+     color:  white;
+     text-decoration: none;
+     font-family: fantasy;
+     font-size: 1em;
+     text-transform: uppercase;
+     overflow: hidden;
+     transition: .5s;
+     letter-spacing: 0.1em;
 
 }
 .admin-profiles-links:hover{
-        background: #03e9f4;
-        color: #fff;
-        border-radius: 0.2em;
-        box-shadow: 0 0 0.2em #03e9f4,
-                    0 0 1em #03e9f4,
-                    0 0 2em #03e9f4,
-                    0 0 4em #03e9f4;
+    transition: .5s;
+    font-size:1.2em;
 }
 
 .user-table-list {
@@ -501,10 +587,10 @@ margin-top:0.6em;
 
 .user-table-list-label, tr{
         box-sizing: border-box;
-        box-shadow: 0 0 0em #03e9f4,
-                    0 0 0.3em #03e9f4,
-                    0 0 0.5em #03e9f4,
-                    0 0 0em #03e9f4;
+        box-shadow: 0 0 0em white,
+                    0 0 0.3em white,
+                    0 0 0.5em white,
+                    0 0 0em white;
 }
 .user-table-list-label, th{
     padding:1em;
@@ -547,7 +633,7 @@ margin-top:0.6em;
         width: 70px;
         transition: .2s;
         box-sizing: border-box;
-        box-shadow: 0 0 0px #03e9f4, 0 0 6px #03e9f4, 0 0 10px #03e9f4, 0 0 0px #03e9f4;
+        box-shadow: 0 0 0px white, 0 0 6px white, 0 0 10px white, 0 0 0px white;
 }
 
 .update-user-data-form-button:active{
@@ -572,16 +658,16 @@ margin-top:0.6em;
 }
 
 .login-box {
+  display:flex;
+  flex-direction:column;
+  align-input:center;
   position: absolute;
   top: 50%;
   left: 50%;
   width: 400px;
   padding: 40px;
   transform: translate(-50%, -50%);
-  background: rgb(3 12 15 / 85%);
-  box-sizing: border-box;
-  box-shadow: 0 15px 25px rgba(0,0,0,.6);
-  border-radius: 10px;
+  background: transparent;
 }
 
 .login-box h2 {
@@ -621,32 +707,28 @@ margin-top:0.6em;
 .login-box .user-box input:valid ~ label {
   top: -20px;
   left: 0;
-  color: #03e9f4;
+  /*color: #03e9f4;*/
   font-size: 12px;
 }
 
 .login-box form a {
-  position: relative;
-  display: inline-block;
-  padding: 10px 20px;
-  color: #03e9f4;
-  font-size: 16px;
+
+  padding: 1em 1.2em;
+  color: white;
+  font-size: 1em;
   text-decoration: none;
   text-transform: uppercase;
   overflow: hidden;
   transition: .5s;
-  margin-top: 40px;
-  letter-spacing: 4px
+
+  letter-spacing: 0.3em;
 }
 
 .login-box a:hover {
-  background: #03e9f4;
+  font-size:1.2em;
   color: #fff;
   border-radius: 5px;
-  box-shadow: 0 0 5px #03e9f4,
-              0 0 25px #03e9f4,
-              0 0 50px #03e9f4,
-              0 0 100px #03e9f4;
+
 }
 
 .login-box a span {
@@ -731,6 +813,8 @@ margin-top:0.6em;
 
 .login-buttons{
     display: flex;
+    flex-direction:row;
+    justify-content:center;
   }
 
   .error-message{
@@ -771,12 +855,18 @@ margin-top:0.6em;
      align-items: center;
      margin: auto;
      top: 0;
-     height: 3%;
+     height: 5%;
      padding: 1vw 1.1vw;
  }
  .header-links-buttons img{
      width:1em;
      height:1em;
+ }
+
+ .login-registration-box{
+    display:flex;
+    flex-decoration:column;
+    align-items:center;
  }
 
  .user-table-list {

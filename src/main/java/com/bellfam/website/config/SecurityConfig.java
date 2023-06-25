@@ -35,14 +35,14 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers("ui/user/**","ui/role/**","/content/private/**")
                 .hasRole("ADMIN")
-                .requestMatchers("/auth/login", "/auth/registration", "/auth/process-registration", "/error").permitAll()
+                .requestMatchers("/auth/login","/content/default", "/auth/registration", "/auth/process-registration", "/error").permitAll()
                 .requestMatchers("/**").authenticated()
                 .and()
-                .formLogin().loginPage("/auth/login").loginProcessingUrl("/process-login")
+                .formLogin().loginPage("/content/default").loginProcessingUrl("/process-login")
                 .defaultSuccessUrl("/content/default", true)
                 .failureUrl("/auth/login?error")
                 .and()
-                .logout().logoutUrl("/logout").logoutSuccessUrl("/auth/login")
+                .logout().logoutUrl("/logout").logoutSuccessUrl("/content/default")
                 .and()
                 .exceptionHandling().accessDeniedPage("/accessDeniedPage");
         return http.build();

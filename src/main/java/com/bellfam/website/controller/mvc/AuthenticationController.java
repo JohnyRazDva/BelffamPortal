@@ -7,6 +7,7 @@ import com.bellfam.website.validator.UserValidator;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/auth")
-public class AuthenticationController {
+public class AuthenticationController extends ParrentController{
 
     @Autowired
     private UserValidator userValidator;
@@ -33,17 +34,19 @@ public class AuthenticationController {
     }
 
     @GetMapping("/registration")
-    public String registrationPage(@ModelAttribute("user") User user) {
-        return "auth/registration";
+    public String registrationPage(@ModelAttribute("user") User user, Model model) {
+        model.addAttribute("presentation","registration");
+        return "/home";
     }
 
     @PostMapping("/process-registration")
-    public String processRegistration(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
+    public String processRegistration(@ModelAttribute("user") @Valid User user, BindingResult bindingResult, Model model) {
         userValidator.validate(user, bindingResult);
         if (bindingResult.hasErrors()) {
-            return "auth/registration";
+            model.addAttribute("presentation","registration");
+            return "/home";
         }
         userService.create(user);
-        return "redirect:auth/login";
+        return "redirect:/home";
     }
 }

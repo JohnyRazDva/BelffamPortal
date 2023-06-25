@@ -19,6 +19,10 @@
         </div>
         <div th:case="error" class="error-page" th:insert="~{/layouts/error}">
         </div>
+        <div th:case="contacts" class="error-page" th:insert="~{/layouts/content/contacts}">
+        </div>
+        <div th:case="registration"  th:insert="~{/auth/registration}">
+        </div>
     </div>
 </div>
 </body>

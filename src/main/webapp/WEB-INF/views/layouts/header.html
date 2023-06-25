@@ -20,13 +20,30 @@
             <a href="/private/news" class="header-link">News</a>
             <a href="/private/mail" class="header-link">Mail</a>
         </div>
+       <!-- <div  class="header-menu-links">
+            <a href="/contacts" class="header-link">Contacts</a>
+        </div>-->
 
-        <div class="header-links-buttons">
+        <div sec:authorize="isAuthenticated()" class="header-links-buttons">
             <a href="/options">
                 <img th:src="@{/images/profile.png}"
                      alt="Options"
                      title="Options" class="header-icons">
             </a>
+        </div>
+        <div class="login-registration" sec:authorize="!isAuthenticated()">
+        <form class="logination-form" method="post" action="/process-login">
+            <div class="login-registration-box">
+                <input type="text" name="username" id="username" required="" placeholder="login"/>
+                <input type="password" name="password" id="password" required="" placeholder="password"/>
+            </div>
+            <div class="login-registration-box">
+                <button type="submit">login</button>
+                <a href="/bellfam/auth/registration" >registration</a>
+            </div>
+        </form>
+        </div>
+        <div sec:authorize="isAuthenticated()" class="header-links-buttons">
             <a  href="/logout" >
                 <img th:src="@{/images/sign-out.png}"
                      alt="Logout"

@@ -38,11 +38,11 @@ public class User {
     private String email;
 
     @Column(name = "username")
-    @Size(min = 6, max = 20, message = "Username should be from 2 to 20 chars")
+    @Size(min = 6, max = 20, message = "Username should be from 6 to 20 chars")
     private String username;
 
     @Column(name = "password")
-    @Size(min = 6, max = 20, message = "Username should be from 2 to 20 chars")
+    @Size(min = 6, max = 200, message = "Password should be from 6 to 20 chars")
     private String password;
 
     @Transient
