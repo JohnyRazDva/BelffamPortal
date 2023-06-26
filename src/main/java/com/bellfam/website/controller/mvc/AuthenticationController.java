@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/auth")
-public class AuthenticationController extends ParrentController{
+public class AuthenticationController {
 
     @Autowired
     private UserValidator userValidator;

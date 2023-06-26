@@ -1,6 +1,5 @@
 package com.bellfam.website.controller.mvc.content;
 
-import com.bellfam.website.controller.mvc.ParrentController;
 import com.bellfam.website.model.VideoLink;
 import com.bellfam.website.service.interf.link.VideoLinkService;
 import jakarta.validation.Valid;
@@ -15,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @Controller
 @RequestMapping("/content")
-public class ContentController extends ParrentController {
+public class ContentController  {
 
     @Autowired
     private VideoLinkService videoLinkService;

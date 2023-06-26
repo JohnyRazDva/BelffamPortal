@@ -42,6 +42,7 @@ public class MailController {
             model.addAttribute("error", "email has been send");
         } catch (MailException | MessagingException | IOException e) {
             model.addAttribute("error", "check entered email pls and try again");
+            model.addAttribute("error", e.toString());
             return "/home";
         }
         return "/home";

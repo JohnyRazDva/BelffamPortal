@@ -26,8 +26,8 @@ import java.nio.file.Path;
 
 @Service
 public class PdfFileRedactor {
-    public final static String PDF_PATTERN_FILE_SOURCE = "src/main/resources/letter.pdf";
-    public final static String PDF_FILE_SOURCE = "src/main/resources/Malfunction_letter.pdf";
+    public final static String PDF_PATTERN_FILE_SOURCE = "letter.pdf";
+    public final static String PDF_FILE_SOURCE = "Malfunction_letter.pdf";
     public final static String LETTER_COMPANY_INFO_PREFIX_TO = "To:";
     public final static String LETTER_COMPANY_PRE_LETTER_STRING = "To whom it may concern:";
     public final static int LETTER_COMPANY_PRE_LETTER_STRING_MARGIN_TOP = 40;

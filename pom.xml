@@ -10,6 +10,7 @@
 	</parent>
 	<groupId>com.bellfam</groupId>
 	<artifactId>website</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>website</name>
 	<description>Bellfam company website</description>

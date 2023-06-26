@@ -271,7 +271,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: fantasy;
+    font-family: initial;
     font-size: 1.5em;
 }
 
@@ -282,8 +282,8 @@ body {
     align-items: end;
     margin-right: 0.4em;
     color: #ffffff6b;
-    font-family: cursive;
-    font-size: 0.6em;
+    font-family: monospace;
+    font-size: 0.8em;
 }
 
 .news-date{
@@ -291,8 +291,8 @@ body {
     flex-direction: column;
     align-items: end;
     margin-right: 0.4em;
-    font-family: cursive;
-    font-size: 0.6em;
+    font-family: monospace;
+    font-size: 0.8em;
     color: #ffffff6b;
 }
 .news-label{
@@ -329,12 +329,38 @@ body {
 /*Mail content*/
 
 .content-mail{
-    margin-top:10em;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
 .mail-form{
+    margin:1em;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.mail-form input{
+    margin-bottom: 1em;
+}
+.mail-label{
+    margin:1em;
+    font-family:initial;
+    font-size:2em;
+}
+.mail-content{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+}
+.mail-manual {
+    margin:1em;
+    width: 40%;
+
+    box-sizing: border-box;
+    box-shadow: 0 0 0.1em white,
+                0 0 0.1em white,
+                0 0 0.2em white,
+                0 0 0.3em white;
 }
 
 
@@ -371,7 +397,7 @@ align-items: center;
 .doc-links{
         color: white;
         text-decoration: none;
-        font-family: fantasy;
+        font-family: initial;
         font-size: 1.3em;
         text-transform: uppercase;
         overflow: hidden;
@@ -382,7 +408,7 @@ align-items: center;
 .doc-links:hover{
             white;
             text-decoration: none;
-            font-family: fantasy;
+            font-family: initial;
             font-size: 1.5em;
             text-transform: uppercase;
             overflow: hidden;
@@ -398,6 +424,7 @@ align-items: center;
     flex-direction: column;
     align-items: center;
     font-family:initial;
+    text-align:center;
 }
 .default-content-box {
     display:flex;
@@ -651,6 +678,10 @@ margin-top:0.6em;
         padding-left: 40%;
         padding-right: 40%;
         margin-top: 25%;
+}
+.logination-form{
+    height:80%;
+    margin:0.4em;
 }
 
 .login-input{

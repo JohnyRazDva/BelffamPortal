@@ -6,6 +6,9 @@
     <script type="text/javascript" th:src="@{/js/private/links-list.js}"></script>
 </head>
 <body>
+<div class="mail-label">
+    <p>Send Malfunction letter</p>
+</div>
 <div class="mail-content">
     <form class="mail-form" method="POST" name="mail" action="/private/mail/send" onsubmit="return validateForm()">
         <label for="to">Send to:</label>
@@ -30,6 +33,7 @@
     </form>
 
     <p style="color:red" th:text="${error}"></p>
+    <img th:src="@{/images/54321.png}" class="mail-manual">
 </div>
 
 <script>
