@@ -63,8 +63,8 @@ public class SpringConfig implements WebMvcConfigurer {
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
 
-        mailSender.setUsername("petrovyauhen@gmail.com");
-        mailSender.setPassword("mrsirqnrolmebevi");
+        mailSender.setUsername("bellfamservice@gmail.com");
+        mailSender.setPassword("lytcgfwdgwgtnalk");
 
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.transport.protocol", "smtp");

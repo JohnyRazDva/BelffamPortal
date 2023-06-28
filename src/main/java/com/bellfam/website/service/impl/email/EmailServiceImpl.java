@@ -59,7 +59,7 @@ public class EmailServiceImpl implements EmailService {
         helper.setText("Malfunction Letter");
         String fileSource = pdfFileRedactor.getResultFileSource(companyName, companyMainAddress, companySecondAddress, driverInfo, date);
         FileSystemResource file = new FileSystemResource(new File(fileSource));
-        helper.addAttachment("Invoice", file);
+        helper.addAttachment("Malfunction Letter.pdf", file);
         javaMailSender.send(message);
         pdfFileRedactor.deletePdfFile();
     }
