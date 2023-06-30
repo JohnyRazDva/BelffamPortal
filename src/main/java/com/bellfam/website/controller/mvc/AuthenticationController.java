@@ -29,8 +29,9 @@ public class AuthenticationController {
     private UserService userService;
 
     @GetMapping("/login")
-    public String loginPage() {
-        return "auth/login";
+    public String loginPage(Model model) {
+        model.addAttribute("presentation", "default");
+        return "/home";
     }
 
     @GetMapping("/registration")

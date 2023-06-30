@@ -36,6 +36,9 @@
             <div class="login-registration-box">
                 <input type="text" name="username" id="username" required="" placeholder="login"/>
                 <input type="password" name="password" id="password" required="" placeholder="password"/>
+                <div th:if="${param.error}" style="color:red">
+                    Authentication Error
+                </div>
             </div>
             <div class="login-registration-box">
                 <button type="submit">login</button>
