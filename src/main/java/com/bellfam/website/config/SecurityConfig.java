@@ -40,7 +40,7 @@ public class SecurityConfig {
                 .and()
                 .formLogin().loginPage("/content/default").loginProcessingUrl("/process-login")
                 .defaultSuccessUrl("/content/default", true)
-                .failureUrl("/auth/login?error")
+                .failureUrl("/auth/login")
                 .and()
                 .logout().logoutUrl("/logout").logoutSuccessUrl("/content/default")
                 .and()
